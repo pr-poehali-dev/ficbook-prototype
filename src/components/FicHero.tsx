@@ -9,11 +9,13 @@ const FicHero: React.FC = () => {
       {/* Декоративные элементы */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -right-10 -top-32 h-96 w-96 rounded-full bg-primary-300/20 blur-3xl"></div>
-        <div className="absolute -left-10 bottom-0 h-72 w-72 rounded-full bg-secondary-400/20 blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 relative">
-        <div className="max-w-3xl mx-auto text-center animate-fade-in">
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
+            Истории, мерцающие <span className="whitespace-nowrap">словно звезды</span>
+          </h1>
+          <p className="text-xl sm:text-2xl mb-10 opacity-90 font-light">
+            Присоединяйтесь к галактическому сообществу авторов и читателей.
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
             Ваши истории ждут своих читателей
           </h1>

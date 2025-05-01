@@ -163,7 +163,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
-              <div className="font-display text-2xl font-bold mb-4 text-gradient">ФикБук</div>
+
+              <div className="font-display text-2xl font-bold mb-4 text-gradient">StarBook</div>
+
               <p className="text-gray-400 mb-6">
                 Сообщество для любителей фанфиков и оригинальных историй
               </p>

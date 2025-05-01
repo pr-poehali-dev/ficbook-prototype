@@ -20,9 +20,11 @@ const FicHeader: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
+
             <Link to="/" className="flex items-center gap-2">
-              <span className="font-display text-2xl font-bold text-gradient">ФикБук</span>
+              <span className="font-display text-2xl font-bold text-gradient">StarBook</span>
             </Link>
+
             
             <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
