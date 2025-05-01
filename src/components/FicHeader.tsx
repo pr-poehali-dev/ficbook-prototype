@@ -1,8 +1,5 @@
 
 import * as React from "react";
-
-import Icon from "@/components/ui/icon";
-
 import Icon from "@/components/ui/icon";
 import {
   NavigationMenu,
@@ -15,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const FicHeader: React.FC = () => {
   return (

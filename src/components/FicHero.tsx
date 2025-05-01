@@ -1,9 +1,7 @@
 
 import * as React from "react";
-
 import Icon from "@/components/ui/icon";
-
-import Icon from "@/components/ui/icon";
+import { Button } from "@/components/ui/button";
 
 const FicHero: React.FC = () => {
   return (
