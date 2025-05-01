@@ -1,9 +1,9 @@
 
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { cn } from "@/lib/utils";
 
 export interface FicCardProps {
   id: string;
@@ -19,6 +19,14 @@ export interface FicCardProps {
   date: string;
 }
 
+const ratingColors: Record<string, string> = {
+  "G": "bg-green-100 text-green-800",
+  "PG": "bg-blue-100 text-blue-800",
+  "PG-13": "bg-yellow-100 text-yellow-800",
+  "R": "bg-orange-100 text-orange-800",
+  "NC-17": "bg-red-100 text-red-800",
+};
+
 const FicCard: React.FC<FicCardProps> = ({
   id,
   title,
@@ -33,59 +41,56 @@ const FicCard: React.FC<FicCardProps> = ({
   date,
 }) => {
   return (
-    <Card className="h-full overflow-hidden transition-all hover:shadow-md">
-      <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <div>
-            <Link to={`/fic/${id}`}>
-              <CardTitle className="text-xl hover:text-[#7E69AB] transition-colors">{title}</CardTitle>
-            </Link>
-            <div className="flex gap-1 mt-1 text-sm">
-              <Link to={`/fandom/${fandom}`} className="text-[#7E69AB] hover:underline">
-                {fandom}
-              </Link>
-              <span className="text-gray-500">•</span>
-              <Link to={`/author/${author}`} className="text-[#7E69AB] hover:underline">
-                {author}
-              </Link>
-            </div>
-          </div>
-          <Badge 
-            variant={rating === "NC-17" ? "destructive" : rating === "R" ? "default" : "secondary"}
-            className={rating === "NC-17" ? "bg-red-500" : rating === "R" ? "bg-[#9b87f5]" : "bg-green-500"}
-          >
+    <Card className="h-full overflow-hidden group card-hover animate-scale-in">
+      <CardHeader className="p-4 pb-2 space-y-2">
+        <div className="flex justify-between items-start gap-2">
+          <h3 className="font-display text-lg font-semibold line-clamp-1 group-hover:text-primary-600 transition-colors">
+            {title}
+          </h3>
+          <span className={cn("text-xs font-medium px-2 py-0.5 rounded", ratingColors[rating] || "bg-gray-100 text-gray-800")}>
             {rating}
-          </Badge>
+          </span>
         </div>
-        <div className="flex flex-wrap gap-2 mt-2">
-          {genre.map((g) => (
-            <Badge key={g} variant="outline" className="text-xs bg-[#F2FCE2] text-[#403E43]">
+        <div className="text-sm text-muted-foreground">
+          <span className="font-medium hover:text-primary-600 transition-colors">{author}</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="outline" className="text-xs bg-primary-50 hover:bg-primary-100 text-primary-800 border-primary-200">
+            {fandom}
+          </Badge>
+          {genre.slice(0, 2).map((g) => (
+            <Badge 
+              key={g} 
+              variant="outline" 
+              className="text-xs bg-secondary-50 hover:bg-secondary-100 text-secondary-800 border-secondary-200"
+            >
               {g}
             </Badge>
           ))}
+          {genre.length > 2 && (
+            <Badge variant="outline" className="text-xs">+{genre.length - 2}</Badge>
+          )}
         </div>
       </CardHeader>
-      <CardContent>
-        <CardDescription className="line-clamp-3">
-          {description}
-        </CardDescription>
+      <CardContent className="p-4 pt-2">
+        <p className="text-sm text-muted-foreground line-clamp-3">{description}</p>
       </CardContent>
-      <CardFooter className="flex justify-between border-t pt-4 text-sm text-gray-500">
-        <div className="flex space-x-4">
-          <div className="flex items-center">
-            <Icon name="Heart" size={16} className="mr-1 text-[#7E69AB]" />
-            <span>{likes}</span>
-          </div>
-          <div className="flex items-center">
-            <Icon name="MessageSquare" size={16} className="mr-1 text-[#7E69AB]" />
-            <span>{comments}</span>
-          </div>
-          <div className="flex items-center">
-            <Icon name="BookOpen" size={16} className="mr-1 text-[#7E69AB]" />
-            <span>{chapters} гл.</span>
-          </div>
+      <CardFooter className="p-4 pt-0 flex justify-between items-center text-sm text-muted-foreground">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1">
+            <Icon name="Heart" size={14} className="text-primary-500" />
+            {likes}
+          </span>
+          <span className="flex items-center gap-1">
+            <Icon name="MessageCircle" size={14} />
+            {comments}
+          </span>
+          <span className="flex items-center gap-1">
+            <Icon name="Bookmark" size={14} />
+            {chapters}
+          </span>
         </div>
-        <div>{date}</div>
+        <span className="text-xs">{date}</span>
       </CardFooter>
     </Card>
   );
