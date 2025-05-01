@@ -1,11 +1,9 @@
 
 import * as React from "react";
-
-import Icon from "@/components/ui/icon";
-
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 
 export interface FicCardProps {
   id: string;

@@ -1,10 +1,9 @@
 
 import * as React from "react";
-
-import Icon from "@/components/ui/icon";
-
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { FicCardProps } from "./FicCard";
+import FicCard from "./FicCard";
 
 interface FicSectionProps {
   title: string;
