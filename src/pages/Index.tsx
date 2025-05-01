@@ -109,7 +109,9 @@ const Index = () => {
       />
       
       <footer className="bg-[#1A1F2C] text-white py-10">
-        <div className="container mx-auto px-4">
+
+    <div className="min-h-screen bg-[#F1F0FB]">
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">ФикБук</h3>
