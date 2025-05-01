@@ -1,6 +1,8 @@
 
 import * as React from "react";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+
+import Icon from "@/components/ui/icon";
+
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { cn } from "@/lib/utils";

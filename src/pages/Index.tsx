@@ -4,7 +4,9 @@ import FicHeader from "@/components/FicHeader";
 import FicHero from "@/components/FicHero";
 import FicSection from "@/components/FicSection";
 import { FicCardProps } from "@/components/FicCard";
+
 import Icon from "@/components/ui/icon";
+
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
